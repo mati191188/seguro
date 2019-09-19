@@ -22,6 +22,7 @@ var Q = require('q');
 var fs = require('fs');
 var path = require('path');
 var shell = require('shelljs');
+var xcode = require('xcode');
 var unorm = require('unorm');
 var plist = require('plist');
 var URL = require('url');
@@ -281,15 +282,15 @@ function handleBuildSettings (platformConfig, locations, infoPlist) {
     var needUpdatedBuildSettingsForLaunchStoryboard = checkIfBuildSettingsNeedUpdatedForLaunchStoryboard(platformConfig, infoPlist);
     var swiftVersion = platformConfig.getPreference('SwiftVersion', 'ios');
 
-    var project;
+    var proj = new xcode.project(locations.pbxproj); /* eslint new-cap : 0 */
 
     try {
-        project = projectFile.parse(locations);
+        proj.parseSync();
     } catch (err) {
         return Q.reject(new CordovaError('Could not parse ' + locations.pbxproj + ': ' + err));
     }
 
-    var origPkg = project.xcode.getBuildProperty('PRODUCT_BUNDLE_IDENTIFIER');
+    var origPkg = proj.getBuildProperty('PRODUCT_BUNDLE_IDENTIFIER');
 
     // no build settings provided and we don't need to update build settings for launch storyboards,
     // then we don't need to parse and update .pbxproj file
@@ -299,27 +300,27 @@ function handleBuildSettings (platformConfig, locations, infoPlist) {
 
     if (origPkg !== pkg) {
         events.emit('verbose', 'Set PRODUCT_BUNDLE_IDENTIFIER to ' + pkg + '.');
-        project.xcode.updateBuildProperty('PRODUCT_BUNDLE_IDENTIFIER', pkg);
+        proj.updateBuildProperty('PRODUCT_BUNDLE_IDENTIFIER', pkg);
     }
 
     if (targetDevice) {
         events.emit('verbose', 'Set TARGETED_DEVICE_FAMILY to ' + targetDevice + '.');
-        project.xcode.updateBuildProperty('TARGETED_DEVICE_FAMILY', targetDevice);
+        proj.updateBuildProperty('TARGETED_DEVICE_FAMILY', targetDevice);
     }
 
     if (deploymentTarget) {
         events.emit('verbose', 'Set IPHONEOS_DEPLOYMENT_TARGET to "' + deploymentTarget + '".');
-        project.xcode.updateBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', deploymentTarget);
+        proj.updateBuildProperty('IPHONEOS_DEPLOYMENT_TARGET', deploymentTarget);
     }
 
     if (swiftVersion) {
         events.emit('verbose', 'Set SwiftVersion to "' + swiftVersion + '".');
-        project.xcode.updateBuildProperty('SWIFT_VERSION', swiftVersion);
+        proj.updateBuildProperty('SWIFT_VERSION', swiftVersion);
     }
 
-    updateBuildSettingsForLaunchStoryboard(project.xcode, platformConfig, infoPlist);
+    updateBuildSettingsForLaunchStoryboard(proj, platformConfig, infoPlist);
 
-    project.write();
+    fs.writeFileSync(locations.pbxproj, proj.writeSync(), 'utf-8');
 
     return Q();
 }
@@ -961,7 +962,7 @@ function processAccessAndAllowNavigationEntries (config) {
     var allow_navigations = config.getAllowNavigations();
 
     return allow_navigations
-    // we concat allow_navigations and accesses, after processing accesses
+        // we concat allow_navigations and accesses, after processing accesses
         .concat(accesses.map(function (obj) {
             // map accesses to a common key interface using 'href', not origin
             obj.href = obj.origin;
@@ -1052,9 +1053,7 @@ function parseWhitelistUrlForATS (url, options) {
         var subdomain1 = '/*.'; // wildcard in hostname
         var subdomain2 = '*://*.'; // wildcard in hostname and protocol
         var subdomain3 = '*://'; // wildcard in protocol only
-        if (!href.pathname) {
-            return null;
-        } else if (href.pathname.indexOf(subdomain1) === 0) {
+        if (href.pathname.indexOf(subdomain1) === 0) {
             retObj.NSIncludesSubdomains = true;
             retObj.Hostname = href.pathname.substring(subdomain1.length);
         } else if (href.pathname.indexOf(subdomain2) === 0) {
