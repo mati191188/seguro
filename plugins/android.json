@@ -1,0 +1,53 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.base.test"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-sim": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.segurometal.app"
+    }
+  }
+}

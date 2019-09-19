@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Segurometal",
+  "short_name": "Segurometal",
+  "version": "com.segurometal.app",
+  "description": "App de gestión para asegurados.",
+  "author": "Alpha Social Marketing",
+  "icons": [],
+  "orientation": "portrait",
+  "start_url": "index.html"
+}

@@ -1,0 +1,244 @@
+/* GENERAL */
+body {
+  font-family: 'Chivo', sans-serif !important;
+}
+a {
+  color: #0d1451;
+}
+.navbar {
+  background: #0d1451;
+}
+.subnavbar, .toolbar {
+ background-color: rgba(13, 20, 81, 0.71);
+}
+.button {
+  color: #0d1451;
+}
+.content-block{
+  padding: 0 8px;
+}
+.navbar .right, .subnavbar .right {
+  margin-left: unset;
+}
+.floating-button{
+  background-color: #0d1451;
+}
+.card-header {
+  background: #0d1451cc;
+  color: #fff;
+  text-transform: uppercase;
+  justify-content: center;
+  min-height: 40px;
+}
+.card-footer {
+  min-height: 60px;
+}
+.list-block .item-title {
+  font-size: 15px;
+  max-width: 80%;
+  white-space: normal;
+  background-color: transparent !important;
+}
+.list-block .item-subtitle {
+  font-size: 13px;
+}
+.card-footer::before {
+  background-color: transparent !important;
+}
+.chip {
+  background: #d3d1d1;
+}
+/* HOME */
+.home-navbar{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.home-navbar-img {
+  margin-top: 20px;
+  height: 45px;
+}
+.home_navbar_button{
+  width: 56px;
+}
+.home-boton-row {
+  margin-top: 15px;
+}
+.home-boton-img{
+  height: 50px;
+}
+.home-boton-div{
+  text-align: left;
+  margin-top: 5px;
+  line-height: 20px;
+  font-size: 15px;
+}
+.home-boton-div span {
+  color: #0d1451;
+  text-transform: none;
+  font-size: 14px;
+}
+.home-boton-button{
+  height: 80px;
+  background: #ffffffbf;
+}
+.home-grid-col-contacto{
+  text-align: center;
+}
+.home-grid-col-contacto i {
+  padding: 20%;
+  color: #0d1451;
+}
+.home-block-contacto{
+  padding: 0 0px;
+}
+.home-card-custom {
+  background: #ffffffbf;
+}
+.floating-button-toolbar .floating-button, .speed-dial .floating-button {
+  right: 25px;
+  bottom: 10px;
+  position: fixed;
+}
+.floating-button-toolbar, .speed-dial {
+  position: fixed;
+  right: 50px;
+  bottom: 60px;
+  z-index: 1500;
+}
+
+/* LOGIN SCREEN */
+.login-screen-title {
+  margin: 0px auto !important;
+  background-color: #0d1451;
+}
+.list-block input[type=text] {
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.list-block input[type=number] {
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.list-block input[type=email] {
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.list-block input[type=password] {
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.list-block input[type=textarea] {
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.button.button-fill {
+  background-color: #0d1451;
+  color: #fff;
+}
+.button.button-fill i {
+  font-size: 14px;
+}
+.login-boton-cerrar {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0d1451;
+}
+.login-crearusuario {
+  text-align: center;
+}
+.input-field.focus-state:after, .input-field.not-empty-state:after, .item-input-field.focus-state:after, .item-input-field.not-empty-state:after {
+  background: transparent;
+}
+
+/* PERFIL */
+.perfil_page {
+  background-color: #f7f7f7;
+}
+.perfil_page p {
+  color: #5d5d5d;
+  font-size: 15px;
+}
+.perfil_tabs p {
+  margin-left: 15px;
+}
+.perfil_card {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.perfil_subnavbar_custom {
+  height: 60px;
+  top: 56px !important;
+}
+.perfil_subnavbar_button_custom {
+  height: 50px;
+  line-height: 20px;
+  font-size: 10px;
+  padding: 0px 3px;
+  top: 7px;
+}
+.perfil_subnavbar_button_custom i {
+  font-size: 20px;
+  color: #ffffff41;
+}
+.perfil_subnavbar_button_custom span {
+  color: #ffffff41;
+}
+.active i {
+  color: #fff;
+}
+.active span {
+  color: #fff;
+}
+.perfil-acordeon-lista {
+  color: #5d5d5d;
+}
+
+/* INC */
+.inc-button-contacto {
+  border-radius: 0% !important;
+}
+.inc-button-contacto i {
+  font-size: 35px !important;
+}
+.inc-button-contacto-items i {
+  font-size: 20px !important;
+}
+.home-icon-fb-contacto{
+  background-color: #29487D !important;
+}
+.home-icon-in-contacto{
+  background-color: #d10869 !important;
+}
+.home-icon-mail-contacto{
+  background-color: #ad9f12 !important;
+}
+.home-icon-phone-contacto{
+  background-color: #268c44 !important;
+}
+.toasted-container {
+  z-index: 1000000 !important;
+}
+.list-block .item-content {
+  padding-left: 15px;
+}
+.list-block li.media-item .item-link .item-title-row, .list-block.media-list .item-link .item-title-row {
+  padding-right: 26px;
+  background: no-repeat right top;
+  background-image: none;
+  background-size: 10px 20px;
+}
