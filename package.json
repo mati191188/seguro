@@ -42,7 +42,7 @@
     "vue": "^2.1.0",
     "vue-axios": "^2.1.4",
     "vue-cordova": "^0.1.2",
-    "vue-moment": "^4.0.0",
+    "vue-moment": "^4.1.0",
     "vue-toasted": "^1.1.26",
     "vue2-google-maps": "^0.10.6",
     "vue2-leaflet": "^2.0.3"
